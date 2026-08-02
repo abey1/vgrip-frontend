@@ -1,5 +1,6 @@
 name: Azure Static Web Apps CI/CD
-
+env:
+  VITE_API_URL: "https://vgrip-backend.gentleground-4a60bbbc.westus2.azurecontainerapps.io"
 on:
   push:
     branches:
