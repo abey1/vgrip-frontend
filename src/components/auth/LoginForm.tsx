@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useAppSelector } from '../../hooks/hooks'
 import { loginSchema, type LoginFormValuesSchemaType } from '../../features/auth/auth.schema'
+import Copywright from '../common/Copywright'
 
 interface LoginFormProps {
   onSubmitForm: (values: LoginDto) => void
@@ -44,6 +45,8 @@ export function LoginForm({
         title="Welcome back"
         description="Sign in to manage your campaigns and keep your lead pipeline moving."
       />
+
+   
 
       <form className="space-y-5" onSubmit={handleSubmit(onSubmitForm)}>
         <Input
@@ -103,6 +106,9 @@ export function LoginForm({
           Create an account
         </button>
       </p>
+      <div className="mt-6">
+        <Copywright />
+      </div>
     </Card>
   )
 }

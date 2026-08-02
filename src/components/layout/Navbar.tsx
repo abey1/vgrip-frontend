@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { LogOut, ChevronDown } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import Copywright from '../common/Copywright'
 
 interface NavItem {
   label: string
@@ -25,9 +26,12 @@ export function Logo() {
         <span className="absolute size-5 rounded-full border-2 border-white/80" />
         <span className="absolute size-2.5 rounded-full border-2 border-white/60" />
       </span>
-      <span className="text-lg font-bold tracking-wide text-gray-900 uppercase">
-        VGRIP
-      </span>
+      <div className="flex items-center gap-2.5">
+        <span className="text-lg font-bold tracking-wide text-gray-900 uppercase">
+          VGRIP
+        </span>
+        <Copywright />
+      </div>
     </Link>
   )
 }

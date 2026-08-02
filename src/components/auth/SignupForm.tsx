@@ -12,6 +12,7 @@ import {
 } from '../../features/auth/auth.schema'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import { clearAuthError, registerUser } from '../../features/auth/auth.slice'
+import Copywright from '../common/Copywright'
 
 export interface SignupFormValues {
   username: string
@@ -67,6 +68,8 @@ export function SignupForm({ onLogin }: SignupFormProps) {
         title="Create your account"
         description="Set up your VGRIP workspace and start building your campaign pipeline."
       />
+
+     
 
       <form className="space-y-5" onSubmit={handleSubmit(onValidSubmit)}>
         <Input
@@ -149,6 +152,9 @@ export function SignupForm({ onLogin }: SignupFormProps) {
           Sign in
         </button>
       </p>
+      <div className="mt-6">
+        <Copywright />
+      </div>
     </Card>
   )
 }
