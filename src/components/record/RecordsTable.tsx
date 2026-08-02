@@ -1,12 +1,12 @@
 import { RecordRow } from './RecordRow'
-import type { RecordItem } from '../../types/record'
+import type { ContactResponseDto } from '../../features/contacts/contact.types'
 
 interface RecordsTableProps {
-  records: RecordItem[]
+  contacts: ContactResponseDto[]
 }
 
-export function RecordsTable({ records }: RecordsTableProps) {
-  if (records.length === 0) {
+export function RecordsTable({ contacts }: RecordsTableProps) {
+  if (contacts.length === 0) {
     return (
       <p className="py-10 text-center text-sm text-gray-500">
         No records found.
@@ -43,8 +43,8 @@ export function RecordsTable({ records }: RecordsTableProps) {
           </tr>
         </thead>
         <tbody>
-          {records.map((record) => (
-            <RecordRow key={record.id} record={record} />
+          {contacts.map((contact) => (
+            <RecordRow key={contact.id} contact={contact} />
           ))}
         </tbody>
       </table>

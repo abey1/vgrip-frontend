@@ -1,21 +1,19 @@
-import { useState} from 'react'
+import { useState } from 'react'
 import { Eye, EyeOff, Lock, User } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Card, CardHeader } from '../ui/Card'
 import { Checkbox } from '../../components/ui/Checkbox'
 import { Input } from '../ui/Input'
-import type{ LoginDto } from '../../features/auth/auth.types'
+import type { LoginDto } from '../../features/auth/auth.types'
 import { useForm } from 'react-hook-form'
-import {zodResolver} from '@hookform/resolvers/zod'
-import { useNavigate } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
-import {loginSchema, type LoginFormValuesSchemaType} from '../../features/auth/auth.schema'
-import { login, setUsername, setPassword } from '../../features/auth/auth.slice'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useAppSelector } from '../../hooks/hooks'
+import { loginSchema, type LoginFormValuesSchemaType } from '../../features/auth/auth.schema'
 
 interface LoginFormProps {
-    onSubmitForm: (values: LoginDto) => void
-    onForgotPassword?: () => void
-    onCreateAccount?: () => void
+  onSubmitForm: (values: LoginDto) => void
+  onForgotPassword?: () => void
+  onCreateAccount?: () => void
 }
 
 export function LoginForm({
@@ -23,18 +21,13 @@ export function LoginForm({
   onForgotPassword,
   onCreateAccount,
 }: LoginFormProps) {
-const dispatch = useAppDispatch()
-const navigate = useNavigate()
-const {status, error, username, password} = useAppSelector((state) => state.auth)
-// const {setUsername, setPassword} = useAppDispatch()
-
-//   const [rememberMe, setRememberMe] = useState(false)
+  const { status } = useAppSelector((state) => state.auth)
   const [showPassword, setShowPassword] = useState(false)
 
   const {
     register,
     handleSubmit,
-    formState: {errors}
+    formState: { errors },
   } = useForm<LoginFormValuesSchemaType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -42,19 +35,6 @@ const {status, error, username, password} = useAppSelector((state) => state.auth
       password: '',
     },
   })
-
- 
-
-  
-//   const onSubmit = async (values: LoginDto) => {
-//     console.log('values', values)
-//     await dispatch(
-//         login({
-//             username: values.username,
-//             password: values.password,
-//         })
-//     );
-//   }
 
   return (
     <Card className="w-full max-w-md p-8 sm:p-10">

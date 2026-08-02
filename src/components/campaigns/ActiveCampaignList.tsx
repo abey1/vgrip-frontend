@@ -1,24 +1,9 @@
 import { TableProperties } from 'lucide-react'
 import { Card, CardHeader } from '../ui/Card'
 import { CampaignRow } from './CampaignRow'
-import type { Campaign } from '../../types/Campaign'
 import { useAppSelector } from '../../hooks/hooks'
 
-interface ActiveCampaignsListProps {
-  // campaigns: Campaign[]
-  // onToggleStatus: (id: string) => void
-  // onEdit: (id: string) => void
-  // onDelete: (id: string) => void
-}
-
-export function ActiveCampaignsList({
-  // campaigns,
-  // onToggleStatus,
-  // onEdit,
-  // onDelete,
-}: ActiveCampaignsListProps) {
-
-  
+export function ActiveCampaignsList() {
   const { allCampaigns } = useAppSelector((state) => state.campaigns);
   console.log("allCampaigns inside ActiveCampaignList", allCampaigns);
   return (
